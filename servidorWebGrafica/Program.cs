@@ -67,8 +67,8 @@ app.MapPost("/api/regresion", async context =>
     }
 
     int n = years.Count;
-    double pendiente = (n * sumAñosPc - sumAños * sumPc) /(n * sumAñosCuadrados - Math.Pow(sumAños, 2));
-    double interceptor = (sumPc - pendiente * sumAños) /n;
+    double pendiente = (n * sumAñosPc - sumAños * sumPc); //(n * sumAñosCuadrados - Math.Pow(sumAños, 2));
+    double interceptor = (sumPc - pendiente * sumAños); //n;
 
 
     return (pendiente, interceptor);
