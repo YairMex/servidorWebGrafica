@@ -53,22 +53,22 @@ app.MapPost("/api/regresion", async context =>
 
 (double pendiente, double interceptor) CalculateLinearRegression(List<int> years, List<double> pc)
 {
-    double sumAños = 0;
+    double sumYears = 0;
     double sumPc = 0;
-    double sumAñosPc = 0;
-    double sumAñosCuadrados = 0;
+    double sumYearsPc = 0;
+    double sumYearsCuadrados = 0;
 
     for (int i =0; i< years.Count; i++)
     {
-        sumAños += years[i];
+        sumYears += years[i];
         sumPc += pc[i];
-        sumAñosPc += pc[i] * years[i];
-        sumAñosCuadrados += Math.Pow(years[i], 2);
+        sumYearsPc += pc[i] * years[i];
+        sumYearsCuadrados += Math.Pow(years[i], 2);
     }
 
     int n = years.Count;
-    double pendiente = (n * sumAñosPc - sumAños * sumPc) / (n * sumAñosCuadrados - Math.Pow(sumAños, 2));
-    double interceptor = (sumPc - pendiente * sumAños) / n;
+    double pendiente = (n * sumYearsPc - sumYears * sumPc) / (n * sumYearsCuadrados - Math.Pow(sumYears, 2));
+    double interceptor = (sumPc - pendiente * sumYears) / n;
 
 
     return (pendiente, interceptor);
